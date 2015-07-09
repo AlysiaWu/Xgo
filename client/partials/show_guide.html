@@ -1,0 +1,12 @@
+<title>Guide Profile</title>
+<div ng-controller = "GuideProfileController">
+<div>
+	<h1>{{guide.username}}</h1>
+	<p>{{guide.area}}</p>
+	<form ng-sumbit = "addReview()">
+		Add a review: 
+		<input type = "text" ng-model = "new_review.review"><br>
+		<button type = "submit">Submit</button>
+	</form>
+</div>
+</div>

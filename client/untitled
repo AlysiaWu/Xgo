@@ -1,0 +1,13 @@
+// Guide Profile
+  myApp.controller('GuideProfileController', function($scope, $routeParams, mainfactory){
+    $scope.review = [];
+
+    mainfactory.getGuide($routeParams.id, function(data){
+      $scope.guide = data;
+      for (var x of data.reviews){
+        $scope.reviews.push(x);
+        console.log(x);
+      }
+    });
+
+  })

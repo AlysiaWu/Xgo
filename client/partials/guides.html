@@ -1,0 +1,32 @@
+<div ng-controller = "guidesController" class = "container">
+	<div class = "row">
+		<h3>Interested in meeting new travellers in your hometown?: </h3>
+		<div class = "six columns"></div>
+		<div class = "six columns">	
+			<form ng-submit = "addGuide()">
+				Email: <input type = 'text' ng-model = "new_guide.email"><br>
+				User Name: <input type = 'text' ng-model = "new_guide.username"><br>
+				Password: <input type = "password" ng-model = "new_guide.password"><br>
+				where you can tour? 
+					<input type = 'text' ng-model = "new_guide.area"><br>
+				<button type = "submit">Register</button>
+			</form>
+</div>
+			<form ng-submit = "loginguide()">
+				Email: <input type = 'text' ng-model = "login.email"><br>
+				Password: <input type = 'password' ng-model = "login.password"><br>
+				<button type = "submit">Login</button>
+
+			</form>
+				<div>
+				<ul ng-repeat = "guide in guides">
+					<li><a href="#/guide/{{guide._id}}">{{guide.username}}</a></li>
+					<li>{{guide.area}}</li>
+
+					<!-- <li><a href="#/guide/{{guide._id}}/addReview">Add Review</a></li> -->
+				</ul>
+			</div>
+		
+	</div>
+
+</div>

@@ -1,0 +1,34 @@
+<title>Traveller Profile</title>
+<div ng-controller = "TProfileController">
+	<div>
+		Hi <h1>{{traveller.username}}</h1>
+		Read to go to : <p>{{traveller.destination}} ? </p>
+
+	<button ng-click = "fellowTravellers()">Meet Fellow Travellers:</button>
+
+	<ul ng-repeat = "fellowTraveller in fellowTravellers">
+		<li>{{fellowTraveller.username}} <button ng-click="chat(fellowTraveller)">chat</button>
+		</li>
+	</ul>
+	<div>
+		<h3>Chatroom</h3>
+		<p ng-repeat="message in publicMsg">{{message.sender}}: {{message.message}}</p>
+			<input type="text" ng-model="userMessage"><button ng-click="sendMesage()">Send</button>
+	</div>
+	<div>
+		<h3>Searching for a local tour guide for authentical local experience</h3>
+		<button ng-click = "searchGuides(traveller.destination)">Search</button>
+		<ul ng-repeat = "localGuide in localGuides">
+			<li>{{localGuide.username}}</li>
+
+		</ul>
+	</div>
+
+<!-- 
+		<form ng-sumbit = "addReview()">
+			Add a review: 
+			<input type = "text" ng-model = "new_review.review"><br>
+			<button type = "submit">Submit</button>
+		</form> -->
+	</div>
+</div>
