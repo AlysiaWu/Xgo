@@ -44,6 +44,7 @@ var myApp = angular.module('myApp', ['ngRoute']);
       };
 
       factory.addTraveller = function(info, callback) {
+        console.log('in addTraveller in mainfactory');
         $http.post('/addTraveller',info).success(function(output) {
           console.log('new travel', output);
           if (Array.isArray(output)){

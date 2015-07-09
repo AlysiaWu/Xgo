@@ -14,6 +14,7 @@ return {
 		})
 	},
 	add:function(req, res){
+		console.log('in travellers.js in server controller');
 		var new_traveller = new Traveller({email: req.body.email, username: req.body.username, password: req.body.password, destination:req.body.destination});
 		new_traveller.save(function(err, results){
 			if(err){

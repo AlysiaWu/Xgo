@@ -16,6 +16,17 @@ app.use(bodyParser.json());
 require('./config/mongoose.js');
 require('./config/routes.js')(app);
 
+// **********************
+
+var travellers = require('./server/controllers/travellers.js');
+
+app.post('/addTraveller', function (req, res) {
+	console.log('in app.post for server.js');
+    travellers.add(req, res);
+  });
+
+// **********************
+
 var server = app.listen(app.get("port"), function(){
   console.log('cool stuff on: 5678', app.get('port'));
 });
