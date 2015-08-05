@@ -1,34 +1,50 @@
 <div ng-controller = "travellersController" class = "container">
-	<div class = "row">
+	
+  <nav class = "traveller-nav">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">&nbsp; &nbsp;&nbsp;xGo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/travellers">Travellers</a></li>
+        <li><a href="#/guides">Tour Guides</a></li>
+      </ul>
+    </div>
+  </nav>
+	<div class = "row card-panel pink lighten-5 z-depth-5">
 			{{err_password.msg}}
-			<h3>Ready for your next adventure? register now!: </h3>
-			<div class = "six columns"></div>
-			<div class = "six columns">	
+			<h4 class = "center-align">Ready for your next adventure? </h4>
+			
+			<div class = "col m4">	
 				<form ng-submit = "addTraveller()">
+			<h5 class = "center-left">Register now!</h5><br>
 					Email: <input type = 'text' ng-model = "new_traveller.email"><br>
 					User Name: <input type = 'text' ng-model = "new_traveller.username"><br>
 					Password: <input type = 'password' ng-model = "new_traveller.password"><br>
 					where is your next adventure ? 
 					<input type = 'text' ng-model = "new_traveller.destination"><br>
-					<button type = "submit">Register</button>
+					<button  class = "waves-effect  pink accent-1 btn" type = "submit">Register</button>
 				</form>
 			</div>
-			<form ng-submit = "logintraveller()">
+			<form ng-submit = "logintraveller()" class = "col m4 offset-m4">
+				<h5 class = "center-left">Log in</h5><br>
 				Email: <input type = 'text' ng-model = "login.email"><br>
 				Password: <input type = 'password' ng-model = "login.password"><br>
-				<button type = "submit">Login</button>
-
+				<button class = "waves-effect  pink accent-1 btn" type = "submit">Login</button>
 			</form>
-
-			<div>
-				<h3>meet you fellow travellers</h3>
-				<ul ng-repeat = "traveller in travellers">
-					<li><a href="#/traveller/{{traveller._id}}">{{traveller.username}}</a></li>
-					<li>{{traveller.destination}}</li>
+	</div>
+	<div class = "row card-panel pink lighten-5 z-depth-5">
+			<div class = "col m7 offset-m1">
+				<h4 class = "center-align">meet you fellow travellers</h4>
+				<ul ng-repeat = "traveller in travellers | limitTo: 5">
+						<li class="collection-item avatar">
+					      <img src="images/yuna.jpg" alt="" class="circle">
+					      <a class="title" href="#/traveller/{{traveller._id}}">{{traveller.username}}</a>	
+					      <p>{{traveller.destination}}</p>
+					  </li>				
 				</ul>
 			</div>
 
 			
-			
-	</div>
+		</div>	
+	
 </div>

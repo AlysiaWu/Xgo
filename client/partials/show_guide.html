@@ -1,12 +1,22 @@
 <title>Guide Profile</title>
-<div ng-controller = "GuideProfileController">
-<div>
-	<h1>{{guide.username}}</h1>
-	<p>{{guide.area}}</p>
-	<form ng-sumbit = "addReview()">
-		Add a review: 
-		<input type = "text" ng-model = "new_review.review"><br>
-		<button type = "submit">Submit</button>
-	</form>
-</div>
+<nav class = "traveller-nav">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">&nbsp; &nbsp;&nbsp;xGo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/travellers">Travellers</a></li>
+        <li><a href="#/guides">Tour Guides</a></li>
+      </ul>
+    </div>
+  </nav>
+<div ng-controller = "GuideProfileController" class = "row center-align card-panel pink lighten-5 z-depth-5">
+	
+		<h4 >{{guide.username}}</h4>
+		<h5>{{guide.area}}</h5>
+		<form ng-sumbit = "addR()">
+			<h5>Add a review:</h5>
+			<input type = "text" ng-model = "new_review.review"><br>
+			<button class = "waves-effect  pink accent-1 btn" type = "submit">Submit</button>
+		</form>
+	
 </div>

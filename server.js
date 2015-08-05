@@ -18,12 +18,12 @@ require('./config/routes.js')(app);
 
 // **********************
 
-var travellers = require('./server/controllers/travellers.js');
+// var travellers = require('./server/controllers/travellers.js');
 
-app.post('/addTraveller', function (req, res) {
-	console.log('in app.post for server.js');
-    travellers.add(req, res);
-  });
+// app.post('/addTraveller', function (req, res) {
+// 	console.log('in app.post for server.js');
+//     travellers.add(req, res);
+//   });
 
 // **********************
 

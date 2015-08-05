@@ -27,13 +27,14 @@ myApp.controller('TProfileController', function($scope, $routeParams, mainfactor
         $scope.fellowTravellers = output;
       })
     };
+    
       $scope.searchGuides = function(destination){
       console.log(destination);
       mainfactory.searchGuides({area:destination}, function(output){
         $scope.localGuides = output;
       });
 
-    }
+    };
 
 
     $scope.publicMsg = [];
