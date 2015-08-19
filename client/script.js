@@ -1,4 +1,3 @@
-// var prompt = prompt ("hey");
 var myApp = angular.module('myApp', ['ngRoute', 'ui.calendar']);
   myApp.config(function ($routeProvider) {
     $routeProvider

@@ -70,7 +70,7 @@
             </div>
 	</div>
 <!-- <div ng-model="new_tour.availabilities" id='calendar'></div> -->
-<div ui-calendar="calendarOptions.calendar" class = "span8" ng-model="events">
+<div ui-calendar="uiconfig.calendar" class = "span8" ng-model="eventSources" calendar = "calendar">
  <!--  <div ui-calendar="options" calendar="my-calendar-name" ng-model="events"></div> -->
       <button class = "waves-effect  pink accent-1 btn" type = "submit">Submit</button>
 </form>
@@ -81,37 +81,3 @@
       <li>Tour Description: {{tour.tour_description}}</li>
       <li>Availabilities: {{tour.availabilities}}</li>
 	</strong></ul>
-// <script type="text/javascript">
-
-//       $('#calendar').fullCalendar({
-//         // Boolean, default: true,
-//         header: {
-//           left: 'prev,next today',
-//           center: 'title',
-//           right: 'month,agendaWeek,agendaDay'
-//         },
-//         selectable: true,
-//         selectHelper: true,
-//         select: function(start, end) {
-//           console.log('prompt');
-//           var title = prompt('Event Title:');
-//           console.log('really');
-
-//           var eventData;
-//           if (title) {
-//             eventData = {
-//               title: title,
-//               start: start,
-//               end: end
-//             };
-//             $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-//           }
-//           $('#calendar').fullCalendar('unselect');
-//         },
-//         editable: true,
-//         eventLimit: true, // allow "more" link when too many events
-//         events: []
-//       });
-
-// </script>
-
