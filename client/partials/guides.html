@@ -1,24 +1,25 @@
 <div ng-controller = "guidesController" class = "container">
-
   <nav class = "traveller-nav">
 		    <div class="nav-wrapper">
 		      <a href="#" class="brand-logo">&nbsp; &nbsp;&nbsp;xGo</a>
 		      <ul id="nav-mobile" class="right hide-on-med-and-down">
-		        <li><a href="#/">Home</a></li>
-		        <li><a href="#/travellers">Travellers</a></li>
-		        <li><a href="#/guides">Tour Guides</a></li>
+		        <li><a href="#/">Log out</a></li>
+		        <li><a href="#/travellers">Sign Up as Travelers</a></li>
+		        <li><a href="#/guides">Sign Up as Tour Guides</a></li>
 		      </ul>
 		    </div>
   </nav>
 	<div class = "row card-panel pink lighten-5 z-depth-5">
-		<h3>Interested in meeting new travellers in your hometown?: </h3>
+		<h3>Hey Tour Guide!!</h3>
 		<div class = "col m4">
 			<form ng-submit = "addGuide()">
-				Email: <input type = 'text' ng-model = "new_guide.email"><br>
 				User Name: <input type = 'text' ng-model = "new_guide.username"><br>
+				Email: <input type = 'text' ng-model = "new_guide.email"><br>
 				Password: <input type = "password" ng-model = "new_guide.password"><br>
-				where you can tour? 
-					<input type = 'text' ng-model = "new_guide.area"><br>
+				where you can tour?
+				<input type = 'text' ng-model = "new_guide.area"><br>
+				Tell me about yourself:
+				<input type = "text" ng-model = "new_guide.aboutself"><br>
 				<button class = "waves-effect  pink accent-1 btn" type = "submit">Register</button>
 			</form>
 </div>
@@ -30,16 +31,16 @@
 			</form>
 	</div>
 </div>
-				<div class = "row card-panel pink lighten-5 z-depth-5">
-				
-				<ul class = "left-align" ng-repeat = "guide in guides | limitTo: 5">
-					<li class="collection-item avatar col m3">
-						<img src="images/yuno.jpg" alt="" class="circle">
-						<a class="title" href="#/guide/{{guide._id}}">{{guide.username}}</a>
-						<p>{{guide.area}}</p></li>
-				</ul>
-			
-				</div>
+		<div class = "row card-panel pink lighten-5 z-depth-5">
+
+		<ul class = "left-align" ng-repeat = "guide in guides | limitTo: 5">
+			<li class="collection-item avatar col m3">
+				<img src="images/yuno.jpg" alt="" class="circle">
+				<a class="title" href="#/guide/{{guide._id}}">{{guide.username}}</a>
+				<p>{{guide.area}}</p></li>
+		</ul>
+
+		</div>
 
 </div>
 

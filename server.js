@@ -9,15 +9,10 @@ app.set("port", (process.env.PORT || 5678));
 app.use(express.static(path.join(__dirname, './client')));
 // bodyParser
 var bodyParser = require('body-parser');
-
 app.use(bodyParser.json());
-
-
 require('./config/mongoose.js');
 require('./config/routes.js')(app);
-
 // **********************
-
 // var travellers = require('./server/controllers/travellers.js');
 
 // app.post('/addTraveller', function (req, res) {
@@ -42,6 +37,6 @@ io.sockets.on("connection", function(socket){
 	// 	console.log(data.messages);
 	// 	io.emit('message', data);
 
-	// });	
+	// });
 });
 

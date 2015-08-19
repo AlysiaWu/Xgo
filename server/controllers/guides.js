@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Traveller = mongoose.model('Traveller');
 var Guide = mongoose.model('Guide');
 var Review = mongoose.model('Review');
+// var Xgo = mongoose.model('Xgo');
 module.exports = (function(){
 return {
 	show:function(req, res){
@@ -19,11 +20,11 @@ return {
 			if(err){
 				console.log("ERROR");
 			}else{
-				
+
 				res.json(results);
 			}
 		})
-	}, 
+	},
 	showone:function(req,res){
 		// console.log("showone");
 		// console.log(req.params.id);
@@ -42,7 +43,7 @@ return {
 			}
 		});
 
-	}, 
+	},
 	searchGuides:function(req,res){
 		// console.log(req.body);
 	Guide.find(req.body, function(err, result){
@@ -51,9 +52,9 @@ return {
 			}else {
 				// console.log(guide);
 				res.json(result);
-			}	
+			}
 		});
-	}, 
+	},
 	login: function(req, res){
 		// console.log(req.body);
 	Guide.find(req.body, function(err, result){
@@ -63,14 +64,8 @@ return {
 				// console.log(result);
 				res.json(result);
 			}
-
 		})
-
 	}
-
-
-
-
 	}
 
 })();

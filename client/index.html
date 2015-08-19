@@ -1,43 +1,33 @@
 <html ng-app = "myApp">
 <head>
-	<title>Adventure</title>	
+	<title>Xgo Travel in Style</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js">
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
-   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js">
-	</script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
-    <script type="text/javascript" src = "script.js"></script>
-<script type="text/javascript" src="angular/controllers/travellercontroller.js"></script>
- 	 <script type="text/javascript" src="angular/controllers/guidescontroller.js"></script>
+	<script type="text/javascript" src = "script.js"></script>
+	<script type="text/javascript" src="angular/controllers/travellercontroller.js"></script>
+ 	<script type="text/javascript" src="angular/controllers/guidescontroller.js"></script>
  	<script type="text/javascript" src="angular/controllers/GuideProfilecontroller.js"></script>
 	<script type="text/javascript" src="angular/controllers/TravellerProfileController.js"></script>
+	<script type="text/javascript" src="angular/controllers/toursController.js"></script>
 	<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
 	<script type="text/javascript" scr = "angular-materialize.js"></script>
+	<link rel="stylesheet" href="_bower_components/fullcalendar/dist/fullcalendar.css"/>
+<!-- jquery, moment, and angular have to get included before fullcalendar -->
+<script type="text/javascript" src="_bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="_bower_components/moment/min/moment.min.js"></script>
+<script type="text/javascript" src="_bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="_bower_components/angular-ui-calendar/src/calendar.js"></script>
+<script type="text/javascript" src="_bower_components/fullcalendar/dist/fullcalendar.js"></script>
+<script type="text/javascript" src="_bower_components/fullcalendar/dist/gcal.js"></script>
 </head>
 <body>
-		
-		<div ng-view = ""></div>
-
+	<div ng-view = ""></div>
 </body>
-	 <script>
-	 
-	// 	//Array of images which you want to show: Use path you want.
-	// 	var images=new Array('images/slide1.jpg','images/slide2.jpg','images/slide3.jpg');
-
-	// 	var nextimage=0;
-	// 	console.log(nextimage);
-
-	// 	doSlideshow();
-
-	// 	function doSlideshow(){
-	// 	    if(nextimage>=images.length){nextimage=0;}
-	// 	    $('html')
-	// 	    .css('background-image','url("'+images[nextimage++]+'")')
-	// 	    .fadeIn(5000,function(){
-	// 	        setTimeout(doSlideshow,2000);
-	// 	    });
-	// 	}
-	// </script>
 </html>

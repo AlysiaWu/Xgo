@@ -1,4 +1,4 @@
-// Guides Controller 
+// Guides Controller
      myApp.controller('guidesController', function ($scope,  $location, mainfactory){
          mainfactory.getGuides(function(data){
             $scope.guides = data;
@@ -10,7 +10,7 @@
               if ($scope.new_guide.password.length<7)
                 {
                   $scope.err_password = {msg: "the password needs to be at least 7 characters!"};
-                
+
                 }else{
                   mainfactory.addGuide($scope.new_guide, function(output){
                   console.log('checkout');
@@ -19,16 +19,15 @@
                  $scope.new_guide={};
                   // $scope.prop2 = "Second";
                   console.log(output._id);
-                //    $scope.both = sharedProperties.setProperty(output) + $scope.prop2;               
+                //    $scope.both = sharedProperties.setProperty(output) + $scope.prop2;
                 $location.path("/guide/" + output._id);
                   });
                 }
             }
-              $scope.loginguide= function (){
-
-          mainfactory.loginguide($scope.login, function(output){
-            // console.log(output[0]._id);
-             $location.path("/guide/" + output[0]._id);
+          $scope.loginguide= function (){
+            mainfactory.loginguide($scope.login, function(output){
+                  // console.log(output[0]._id);
+            $location.path("/guide/" + output[0]._id);
 
           })
 

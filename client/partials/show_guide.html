@@ -1,22 +1,117 @@
+<style type="text/css">
+  /* label color */
+   .input-field label {
+     color: #000;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #000;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* invalid color */
+   .input-field input[type=text].invalid {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: #000;
+   }
+</style>
 <title>Guide Profile</title>
 <nav class = "traveller-nav">
-    <div class="nav-wrapper">
+      <div class="nav-wrapper">
       <a href="#" class="brand-logo">&nbsp; &nbsp;&nbsp;xGo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#/">Home</a></li>
-        <li><a href="#/travellers">Travellers</a></li>
-        <li><a href="#/guides">Tour Guides</a></li>
-      </ul>
-    </div>
-  </nav>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                  <li><a href="#/">Log out</a></li>
+                  <li><a href="#/travellers">Travellers</a></li>
+                  <li><a href="#/tours">Look Around</a></li>
+                  <li><a href="#/guides">Tour Guides</a></li>
+            </ul>
+      </div>
+</nav>
+ <style type="text/css">
+      h5{
+      	text-align: left
+      }
+ </style>
 <div ng-controller = "GuideProfileController" class = "row center-align card-panel pink lighten-5 z-depth-5">
-	
-		<h4 >{{guide.username}}</h4>
-		<h5>{{guide.area}}</h5>
-		<form ng-sumbit = "addR()">
-			<h5>Add a review:</h5>
-			<input type = "text" ng-model = "new_review.review"><br>
-			<button class = "waves-effect  pink accent-1 btn" type = "submit">Submit</button>
-		</form>
-	
-</div>
+      <h5>Hi, {{guide.username}}! Tell us your plan to show people around {{guide.area}}</h5>
+<form ng-submit="addTour()">
+	<div class="row">
+            <div class="input-field col s5">
+                <input id="tour_name" ng-model="new_tour.tour_name" type="text" class="validate">
+                <label for="tour_name">Tour Name</label>
+            </div>
+            <div class="input-field col s5">
+                 <input id="fee" ng-model="new_tour.fee" type="text" class="validate">
+                 <label for="fee">How much you want to charge?</label>
+            </div>
+      </div>
+   	<div class="row">
+        <div class="input-field col s5">
+            <input id="duration" ng-model="new_tour.duration" type="text" class="validate">
+            <label for="duration">Duration</label>
+        </div>
+     </div>
+	<div class="row">
+            <div class="input-field col s12">
+                  <textarea id="tour_description" ng-model="new_tour.tour_description" class="materialize-textarea"></textarea>
+                  <label for="tour_description">Describe how you would provide the tour</label>
+            </div>
+	</div>
+<!-- <div ng-model="new_tour.availabilities" id='calendar'></div> -->
+<div ui-calendar="calendarOptions.calendar" class = "span8" ng-model="events">
+ <!--  <div ui-calendar="options" calendar="my-calendar-name" ng-model="events"></div> -->
+      <button class = "waves-effect  pink accent-1 btn" type = "submit">Submit</button>
+</form>
+<div class="row col s4">
+	<ul><strong>
+      <li>Tour Name: {{tour.tour_name}}</li>
+      <li>Tour Fee: {{tour.fee}}</li>
+      <li>Tour Description: {{tour.tour_description}}</li>
+      <li>Availabilities: {{tour.availabilities}}</li>
+	</strong></ul>
+// <script type="text/javascript">
+
+//       $('#calendar').fullCalendar({
+//         // Boolean, default: true,
+//         header: {
+//           left: 'prev,next today',
+//           center: 'title',
+//           right: 'month,agendaWeek,agendaDay'
+//         },
+//         selectable: true,
+//         selectHelper: true,
+//         select: function(start, end) {
+//           console.log('prompt');
+//           var title = prompt('Event Title:');
+//           console.log('really');
+
+//           var eventData;
+//           if (title) {
+//             eventData = {
+//               title: title,
+//               start: start,
+//               end: end
+//             };
+//             $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+//           }
+//           $('#calendar').fullCalendar('unselect');
+//         },
+//         editable: true,
+//         eventLimit: true, // allow "more" link when too many events
+//         events: []
+//       });
+
+// </script>
+

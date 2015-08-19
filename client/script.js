@@ -1,14 +1,15 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+// var prompt = prompt ("hey");
+var myApp = angular.module('myApp', ['ngRoute', 'ui.calendar']);
   myApp.config(function ($routeProvider) {
     $routeProvider
       .when('/',{
         templateUrl: 'partials/home.html'
       })
       .when('/travellers',{
-        templateUrl: 'partials/travellers.html'    
+        templateUrl: 'partials/travellers.html'
       })
       .when('/guides',{
-        templateUrl: 'partials/guides.html'    
+        templateUrl: 'partials/guides.html'
       })
       .when('/guide/:id/',{
         templateUrl: 'partials/show_guide.html'
@@ -19,7 +20,12 @@ var myApp = angular.module('myApp', ['ngRoute']);
      .when('/traveller/:id/',{
           templateUrl: 'partials/show_traveller.html'
         })
-
+     .when('/tours', {
+        templateUrl: 'partials/tours.html'
+     })
+     .when('/book', {
+        templateUrl: 'partials/book.html'
+     })
       .otherwise({
         redirectTo: '/'
       });
@@ -29,6 +35,7 @@ var myApp = angular.module('myApp', ['ngRoute']);
     var factory = {};
     var travellers = [];
     var guides = [];
+    var tours = [];
       factory.getTravellers = function(callback) {
           $http.get('/travellers').success(function(output) {
             travellers = output;
@@ -49,18 +56,18 @@ var myApp = angular.module('myApp', ['ngRoute']);
           console.log('new travel', output);
           if (Array.isArray(output)){
             error(output);
-          } 
+          }
           else {
             callback(output);
-          }       
+          }
         });
       };
       factory.fellowTravellers= function (info, callback){
         // console.log(info);
         $http.post('/fellowTravellers', {destination: info}).success(function(output){
             callback(output);
-        }); 
-      }; 
+        });
+      };
       factory.logintraveller= function (info, callback){
         console.log(info);
         $http.post('/login', info).success(
@@ -85,7 +92,6 @@ var myApp = angular.module('myApp', ['ngRoute']);
           callback(guides);
         });
       };
-
       factory.getGuide = function(id, callback){
 
         $http.get('/guides/'+id).success(function(output) {
@@ -93,6 +99,9 @@ var myApp = angular.module('myApp', ['ngRoute']);
           callback(guide);
         });
       };
+
+
+
       factory.addGuide = function(info, callback) {
         $http.post('/addGuide',info).success(function(output) {
           console.log('new guide', output);
@@ -100,7 +109,7 @@ var myApp = angular.module('myApp', ['ngRoute']);
             error(output);
           } else {
             callback(output);
-          }         
+          }
         });
       };
 
@@ -112,6 +121,18 @@ var myApp = angular.module('myApp', ['ngRoute']);
           });
       }
 
+      factory.addTour = function(id, info, callback){
+      console.log(id)
+        $http.post('/addTour/id', info).success(function(output){
+          callback(output);
+        })
+      }
+
+      factory.getTours = function(callback){
+        $http.get('/tours').success(function(output){
+          callback(output);
+        })
+      }
 
       // factory.selectGuide = function(info, callback) {
       //   $http.post('/selectGuide', info).success(function(output) {
@@ -123,7 +144,7 @@ var myApp = angular.module('myApp', ['ngRoute']);
       var socket = io.connect();
 
       factory.socketOn = function (eventName, callback) {
-        socket.on(eventName, function () {  
+        socket.on(eventName, function () {
           var args = arguments;
           $rootScope.$apply(function () {
             callback.apply(socket, args);
@@ -143,11 +164,11 @@ var myApp = angular.module('myApp', ['ngRoute']);
       }
 
 return factory;
-  }); 
+  });
 
 
 // ********************************************
- 
+
 //  // Guide Profile
 //   myApp.controller('GuideProfileController', function($scope, $routeParams, mainfactory){
 //     // $scope.review = [];
@@ -165,7 +186,7 @@ return factory;
 
 //   })
 
-// // Guides Controller 
+// // Guides Controller
 //      myApp.controller('guidesController', function ($scope,  $location, mainfactory){
 //          mainfactory.getGuides(function(data){
 //             $scope.guides = data;
@@ -176,7 +197,7 @@ return factory;
 //               if ($scope.new_guide.password.length<7)
 //                 {
 //                   $scope.err_password = {msg: "the password needs to be at least 7 characters!"};
-                
+
 //                 }else{
 //                   mainfactory.addGuide($scope.new_guide, function(output){
 //                   console.log('checkout');
@@ -185,7 +206,7 @@ return factory;
 //                  $scope.new_guide={};
 //                   // $scope.prop2 = "Second";
 //                   console.log(output._id);
-//                 //    $scope.both = sharedProperties.setProperty(output) + $scope.prop2;               
+//                 //    $scope.both = sharedProperties.setProperty(output) + $scope.prop2;
 //                 $location.path("/guide/" + output._id);
 //                   });
 //                 }
@@ -211,7 +232,7 @@ return factory;
 //           if ($scope.new_traveller.password.length<7)
 //             {
 //               $scope.err_password = {msg: "the password needs to be at least 7 characters!"};
-            
+
 //             }else{
 //               mainfactory.addTraveller($scope.new_traveller, function(output){
 
@@ -246,7 +267,7 @@ return factory;
 //     console.log("traveller profile");
 //     console.log($routeParams.id);
 //     mainfactory.getTraveller($routeParams.id, function(data){
- 
+
 //       $scope.traveller = data;
 //       $scope.traveller.username;
 //     });

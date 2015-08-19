@@ -1,26 +1,26 @@
 <div ng-controller = "travellersController" class = "container">
-	
+
   <nav class = "traveller-nav">
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">&nbsp; &nbsp;&nbsp;xGo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="#/">Home</a></li>
-        <li><a href="#/travellers">Travellers</a></li>
-        <li><a href="#/guides">Tour Guides</a></li>
+        <li><a href="#/travellers">Sign Up as Travelers</a></li>
+        <li><a href="#/guides">Sign Up as Tour Guides</a></li>
       </ul>
     </div>
   </nav>
 	<div class = "row card-panel pink lighten-5 z-depth-5">
 			{{err_password.msg}}
-			<h4 class = "center-align">Ready for your next adventure? </h4>
-			
-			<div class = "col m4">	
+			<h4 class = "center-align">Hey Traveler, ready for your next adventure? </h4>
+
+			<div class = "col m4">
 				<form ng-submit = "addTraveller()">
 			<h5 class = "center-left">Register now!</h5><br>
-					Email: <input type = 'text' ng-model = "new_traveller.email"><br>
 					User Name: <input type = 'text' ng-model = "new_traveller.username"><br>
+					Email: <input type = 'text' ng-model = "new_traveller.email"><br>
 					Password: <input type = 'password' ng-model = "new_traveller.password"><br>
-					where is your next adventure ? 
+					where is your next adventure ?
 					<input type = 'text' ng-model = "new_traveller.destination"><br>
 					<button  class = "waves-effect  pink accent-1 btn" type = "submit">Register</button>
 				</form>
@@ -38,13 +38,13 @@
 				<ul ng-repeat = "traveller in travellers | limitTo: 5">
 						<li class="collection-item avatar">
 					      <img src="images/yuna.jpg" alt="" class="circle">
-					      <a class="title" href="#/traveller/{{traveller._id}}">{{traveller.username}}</a>	
+					      <a class="title" href="#/traveller/{{traveller._id}}">{{traveller.username}}</a>
 					      <p>{{traveller.destination}}</p>
-					  </li>				
+					  </li>
 				</ul>
 			</div>
 
-			
-		</div>	
-	
+
+		</div>
+
 </div>

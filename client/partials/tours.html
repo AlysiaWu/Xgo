@@ -1,0 +1,29 @@
+
+<div ng-controller = "toursController" class = "container">
+	<nav class = "traveller-nav">
+	    <div class="nav-wrapper">
+	      <a href="#" class="brand-logo">&nbsp; &nbsp;&nbsp;xGo</a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a href="#/">Log out</a></li>
+	        <li><a href="#/travellers">Sign Up as Travelers</a></li>
+	        <li><a href="#/guides">Sign Up as Tour Guides</a></li>
+	      </ul>
+	    </div>
+  </nav>
+<h4>All the tours you can find around the block</h4>
+	<div>
+
+		<ul ng-repeat="tour in tours" class="collection with-header">
+
+			<li class="collection-header">
+				Tour Theme: {{tour.tour_name}}</li>
+			<li class="collection-item">Tour Fee: {{tour.fee}}</li>
+			<li class="collection-item">Description: {{tour.tour_description}}</li>
+			<li class="collection-item">Availability: {{tour.availabilities}}</li>
+			<li><a href = "#/book" class="waves-effect waves-light btn"><i class="material-icons left"></i>>book</a></li>
+		</ul>
+	</div>
+
+
+
+</div>

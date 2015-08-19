@@ -3,10 +3,44 @@ var window_height = $(window).height();
 var margin_top = window_height/2-25;
 $('#home_menu').css('margin-top', margin_top);
 </script>
+<style type="text/css">
+nav{
+	background-color: transparent;
+}
+.middle{
+	width: 900px;
+	margin-left: 30px;
+	margin-top: 200px;
+	text-align: center;
+	height: 100px;
+	margin-bottom: 0px;
+	color: white;
+}
+</style>
+<nav>
+	<div class="container">
+		<div class="nav-wrapper">
+		  <a href="#" class="brand-logo">Xgo</a>
+		  <ul id="nav-mobile" class="right hide-on-med-and-down">
+		    <li><a href="#/tours">Look Around</a></li>
+		    <li><a href="#/guides">Login</a></li>
+		    <li><a href="#/guides">START</a></li>
+		  </ul>
+		</div>
+		<div class="navbar-fixed">
+            <!-- Include this line below -->
+            <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+            <!-- End -->
+	    </div>
+	</div>
+</nav>
+<div class = "middle">
+	<h4>MEET NEW PEOPLE AND SHOW YOU AROUND WHERE YOU WORK SHOP AND HAVE FUN</h4><br><br>
+	<h5>Xgo is a platform providing interesting mini tours and establishing meaningful connections with local tour guides and travelers</h5>
+</div>
 <div id="home_menu" class="row text-center">
-	
-	<a href="#/travellers" class="waves-effect  pink accent-1 btn col m3 offset-m2"><i class="material-icons left"></i>Travellers Wannabe ?</a>
-	<a href="#/guides" class="waves-effect  blue darken-2 btn col m3 offset-m2"><i class="material-icons left"></i>Tour Guides Wannabe ?</a>
+	<a href="#/travellers" class="waves-effect  pink accent-1 btn col m3 offset-m2"><i class="material-icons left"></i>SEARCH FOR TOURING SERVICES</a>
+	<a href="#/guides" class="waves-effect  blue darken-2 btn col m3 offset-m2"><i class="material-icons left"></i>SIGN UP YOU TOUR SERVICE NOW</a>
 
 </div>
 

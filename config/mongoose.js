@@ -4,11 +4,10 @@
 var mongoose = require('mongoose');
 // require file-system so that we can load, read, require all of the model files
 var fs = require('fs');
-var uristring = 
+var uristring =
 process.env.MONGOLAB_URI ||
 process.env.MONGOHQ_URL ||
 'mongodb://localhost/adventure';
-
 // connect to the database
 mongoose.connect(uristring, function (err, res){
 	if(err){
